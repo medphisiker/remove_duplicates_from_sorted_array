@@ -24,9 +24,9 @@ class Solution:
         Returns:
             int: возвращает количество уникальных элементов в `nums`.
         """
-        # защита о пустого массива
-        if not nums:
-            return 0
+        # оптимизация тривиальных случаев
+        if len(nums) <=1:
+            return len(nums)
         
         write = 0
         for read in range(1, len(nums)):
@@ -40,5 +40,7 @@ class Solution:
 if __name__ == "__main__":
     nums = list(map(int, input().split()))
     solution = Solution()
+    print(f"Входной массив: {nums}")
     k = solution.removeDuplicates(nums)
-    print(k, nums[:k])
+    print(f"Количество уникальных элементов: {k}")
+    print(f"Массив без дубликатов: {nums[:k]}")
